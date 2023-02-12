@@ -1,1 +1,1 @@
-{"@timestamp":"2023-07-15T10:50:30.0000000Z","level":"Information","message":"message {Property}","exception":"System.NullReferenceException: exception message\r\n ---> System.Exception: inner exception\r\n   --- End of inner exception stack trace ---","property":"value"}
+{"@timestamp":"2023-07-15T10:50:30.0000000Z","level":"Information","message":"message {Property}","exception":"System.NullReferenceException: exception message\n ---> System.Exception: inner exception\n   --- End of inner exception stack trace ---","property":"value"}

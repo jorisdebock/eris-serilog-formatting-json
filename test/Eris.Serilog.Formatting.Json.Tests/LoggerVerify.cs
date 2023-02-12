@@ -19,6 +19,7 @@ public static class LoggerVerify
             logger.Write(new LogEvent(dateTimeOffset, LogEventLevel.Information, exception, parsedTemplate, boundProperties));
         }
 
-        return Verify(output.ToString());
+        // remove \r for running tests on windows with linux line endings
+        return Verify(output.ToString().Replace("\\r", ""));
     }
 }
