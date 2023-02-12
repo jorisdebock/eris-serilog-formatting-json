@@ -2,16 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
-<<<<<<< Updated upstream
-	  <LangVersion>latest</LangVersion>
-	  <PackageProjectUrl>https://github.com/jorisdebock/eris-serilog-formatting-json</PackageProjectUrl>
-	  <PackageReadmeFile>readme.md</PackageReadmeFile>
-	  <RepositoryUrl>https://github.com/jorisdebock/eris-serilog-formatting-json</RepositoryUrl>
-	  <RepositoryType>git</RepositoryType>
-	  <PackageTags>eris,serilog,formatting,json</PackageTags>
-	  <Description>Json formatter for serilog</Description>
-	  <Authors>Eris</Authors>
-=======
 	<LangVersion>latest</LangVersion>
 	<PackageProjectUrl>https://github.com/jorisdebock/eris-serilog-formatting-json</PackageProjectUrl>
 	<PackageReadmeFile>readme.md</PackageReadmeFile>
@@ -20,7 +10,6 @@
 	<PackageTags>eris,serilog,formatting,json</PackageTags>
 	<Description>Json formatter for serilog</Description>
 	<Authors>Eris</Authors>
->>>>>>> Stashed changes
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,15 +18,8 @@
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-
-<<<<<<< Updated upstream
-	<ItemGroup>
-	  <PackageReference Include="Serilog" Version="2.12.0" />
-	</ItemGroup>
-=======
   <ItemGroup>
     <PackageReference Include="Serilog" Version="2.12.0" />
   </ItemGroup>
->>>>>>> Stashed changes
 
 </Project>
