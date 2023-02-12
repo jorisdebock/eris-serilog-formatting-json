@@ -1,0 +1,36 @@
+name: .NET build & publish
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - src/**
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Bump versions
+      uses: SiqiLu/dotnet-bump-version@2
+      with:
+          version_files: "src/Eris.Serilog.Formatting.Json/Eris.Serilog.Formatting.Json.csproj.csproj"
+          version_mask: 0.0.1.0
+          version_overwrite: "*.*.*.*"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Pack nuget
+      run: dotnet pack --configuration Release --no-build src/Eris.Serilog.Formatting.Json/Eris.Serilog.Formatting.Json.csproj
+    - name: Push nuget
+      run: dotnet nuget push --configuration Release --no-build --api-key ${{ secrets.NUGET_TOKEN }} src/Eris.Serilog.Formatting.Json/bin/Release/Eris.Serilog.Formatting.Json.*.nupkg
