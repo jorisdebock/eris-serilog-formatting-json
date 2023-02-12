@@ -34,4 +34,4 @@ jobs:
     - name: Pack nuget
       run: dotnet pack --configuration Release --no-build src/Eris.Serilog.Formatting.Json/Eris.Serilog.Formatting.Json.csproj
     - name: Push nuget
-      run: dotnet nuget push --configuration Release --no-build --api-key ${{ secrets.NUGET_TOKEN }} src/Eris.Serilog.Formatting.Json/bin/Release/Eris.Serilog.Formatting.Json.*.nupkg
+      run: dotnet nuget push --api-key ${{ secrets.NUGET_TOKEN }} src/Eris.Serilog.Formatting.Json/bin/Release/Eris.Serilog.Formatting.Json.*.nupkg
