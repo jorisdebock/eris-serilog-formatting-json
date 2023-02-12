@@ -1,0 +1,1 @@
+{"@timestamp":"2023-07-15T10:50:30.0000000Z","level":"Information","message":"message"}

@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{65D15C88-F03C-4E51-8621-514205342EF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{699003F3-7E6B-4500-958E-4682C7A5A6CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmark", "benchmark", "{65150446-C790-4329-BD61-1B8C76FDE690}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eris.Serilog.Formatting.Json", "src\Eris.Serilog.Formatting.Json\Eris.Serilog.Formatting.Json.csproj", "{02E2CBE5-D1C5-44B8-BD47-CE9E567A9C18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eris.Serilog.Formatting.Json.Tests", "test\Eris.Serilog.Formatting.Json.Tests\Eris.Serilog.Formatting.Json.Tests.csproj", "{C2BCFBE8-6FDF-45F6-AD4A-8627200C323E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eris.Serilog.Formatting.Json.Benchmarks", "benchmark\Eris.Serilog.Formatting.Json.Benchmarks\Eris.Serilog.Formatting.Json.Benchmarks.csproj", "{3B1B5F46-E1AC-4D68-B123-CA7E763ED2B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{B4AC8D58-BDAC-4B7A-8F88-E8E399DCD620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eris.Serilog.Formatting.Json.Sample", "sample\Eris.Serilog.Formatting.Json.Sample\Eris.Serilog.Formatting.Json.Sample.csproj", "{974FC584-710C-4293-8F3D-DF5FB693C840}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02E2CBE5-D1C5-44B8-BD47-CE9E567A9C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02E2CBE5-D1C5-44B8-BD47-CE9E567A9C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02E2CBE5-D1C5-44B8-BD47-CE9E567A9C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02E2CBE5-D1C5-44B8-BD47-CE9E567A9C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2BCFBE8-6FDF-45F6-AD4A-8627200C323E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2BCFBE8-6FDF-45F6-AD4A-8627200C323E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2BCFBE8-6FDF-45F6-AD4A-8627200C323E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2BCFBE8-6FDF-45F6-AD4A-8627200C323E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1B5F46-E1AC-4D68-B123-CA7E763ED2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1B5F46-E1AC-4D68-B123-CA7E763ED2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1B5F46-E1AC-4D68-B123-CA7E763ED2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1B5F46-E1AC-4D68-B123-CA7E763ED2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{974FC584-710C-4293-8F3D-DF5FB693C840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{974FC584-710C-4293-8F3D-DF5FB693C840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{974FC584-710C-4293-8F3D-DF5FB693C840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{974FC584-710C-4293-8F3D-DF5FB693C840}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02E2CBE5-D1C5-44B8-BD47-CE9E567A9C18} = {65D15C88-F03C-4E51-8621-514205342EF4}
+		{C2BCFBE8-6FDF-45F6-AD4A-8627200C323E} = {699003F3-7E6B-4500-958E-4682C7A5A6CD}
+		{3B1B5F46-E1AC-4D68-B123-CA7E763ED2B8} = {65150446-C790-4329-BD61-1B8C76FDE690}
+		{974FC584-710C-4293-8F3D-DF5FB693C840} = {B4AC8D58-BDAC-4B7A-8F88-E8E399DCD620}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76FB00B2-A998-4494-B18D-CD21ACDB5E32}
+	EndGlobalSection
+EndGlobal

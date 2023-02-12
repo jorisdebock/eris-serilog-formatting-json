@@ -1,0 +1,1 @@
+{"@timestamp":"2023-07-15T10:50:30.0000000Z","level":"Information","message":"Hello, {@User}, {N:x8} at {Now}","user":{"name":"nblumhardt","tags":[1,2,3]},"n":"0000007b","now":"2023-07-15T12:50:30.0000000+02:00"}
