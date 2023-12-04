@@ -1,6 +1,7 @@
 name: .NET build & publish
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
     paths:
@@ -22,9 +23,9 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --configuration Release --no-build --verbosity normal
     - name: Bump versions
-      uses: SiqiLu/dotnet-bump-version@2
+      uses: SiqiLu/dotnet-bump-version@2.0.0
       with:
           version_files: "src/Eris.Serilog.Formatting.Json/Eris.Serilog.Formatting.Json.csproj"
           version_mask: 0.0.1.0
@@ -33,4 +34,4 @@ jobs:
     - name: Pack nuget
       run: dotnet pack --configuration Release --no-build src/Eris.Serilog.Formatting.Json/Eris.Serilog.Formatting.Json.csproj
     - name: Push nuget
-      run: dotnet nuget push --configuration Release --no-build --api-key ${{ secrets.NUGET_TOKEN }} src/Eris.Serilog.Formatting.Json/bin/Release/Eris.Serilog.Formatting.Json.*.nupkg
+      run: dotnet nuget push src/Eris.Serilog.Formatting.Json/bin/Release/Eris.Serilog.Formatting.Json.*.nupkg --api-key ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
