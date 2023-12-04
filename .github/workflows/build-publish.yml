@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 7.0.x
+        dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -26,7 +26,7 @@ jobs:
     - name: Bump versions
       uses: SiqiLu/dotnet-bump-version@2
       with:
-          version_files: "src/Eris.Serilog.Formatting.Json/Eris.Serilog.Formatting.Json.csproj.csproj"
+          version_files: "src/Eris.Serilog.Formatting.Json/Eris.Serilog.Formatting.Json.csproj"
           version_mask: 0.0.1.0
           version_overwrite: "*.*.*.*"
           github_token: ${{ secrets.GITHUB_TOKEN }}

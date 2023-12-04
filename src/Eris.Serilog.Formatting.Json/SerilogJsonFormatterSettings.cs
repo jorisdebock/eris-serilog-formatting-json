@@ -6,6 +6,8 @@ public sealed class SerilogJsonFormatterSettings
     public string LogLevelName { get; init; } = "level";
     public string MessageName { get; init; } = "message";
     public string ExceptionName { get; init; } = "exception";
+    public string TraceIdName { get; init; } = "traceId";
+    public string SpanIdName { get; init; } = "spanId";
     public string PropertiesName { get; init; } = "properties";
 
     /// <summary>
@@ -19,4 +21,14 @@ public sealed class SerilogJsonFormatterSettings
     /// default: false
     /// </summary>
     public bool WrapProperties { get; init; }
+
+    /// <summary>
+    /// Log Trace id
+    /// </summary>
+    public bool LogTraceId { get; init; } = true;
+
+    /// <summary>
+    /// Log Span id
+    /// </summary>
+    public bool LogSpanId { get; init; } = true;
 }

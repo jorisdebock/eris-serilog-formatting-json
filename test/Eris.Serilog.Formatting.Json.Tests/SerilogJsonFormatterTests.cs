@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Eris.Serilog.Formatting.Json.Tests;
 
 [UsesVerify]
@@ -53,6 +55,18 @@ public sealed class SerilogJsonFormatterTests
     }
 
     [Fact]
+    public Task Property_Object_Rendered()
+    {
+        var serilogJsonFormatter = new SerilogJsonFormatter(new() { RenderMessage = true });
+        return LoggerVerify.VerifyLogAction(
+            serilogJsonFormatter, 
+            _logEventDateTimeOffset, 
+            "Hello, {@User}, {N:x8} at {Now}", 
+            null, 
+            new object[] { new { Name = "nblumhardt", Tags = new[] { 1, 2, 3 } }, 123, _logEventDateTimeOffset });
+    }
+
+    [Fact]
     public Task Property_Format()
     {
         var serilogJsonFormatter = new SerilogJsonFormatter();
@@ -76,5 +90,26 @@ public sealed class SerilogJsonFormatterTests
     {
         var serilogJsonFormatter = new SerilogJsonFormatter(new() { WrapProperties = true});
         return LoggerVerify.VerifyLogAction(serilogJsonFormatter, _logEventDateTimeOffset, "message {Property:X}, {Property2}", null, new object[] { 10, "two" });
+    }
+
+    [Fact]
+    public Task Activity()
+    {
+        var activity = new Activity("test");
+        activity.SetParentId("00-12345678901234567890123456789012-1234567890123456-01");
+        activity.Start();
+
+        activity.GetType().GetField("_spanId", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(activity, "1234567890123456");
+
+        var serilogJsonFormatter = new SerilogJsonFormatter();
+        return LoggerVerify.VerifyLogAction(serilogJsonFormatter, _logEventDateTimeOffset, "message {Property}", null, new object[] { "value" }, activity);
+    }
+
+    [Fact]
+    public Task Activity_Disabled_Trace_And_Span()
+    {
+        var activity = new Activity("test").SetParentId(ActivityTraceId.CreateRandom(), ActivitySpanId.CreateRandom()).Start();
+        var serilogJsonFormatter = new SerilogJsonFormatter(new SerilogJsonFormatterSettings { LogSpanId = false, LogTraceId = false });
+        return LoggerVerify.VerifyLogAction(serilogJsonFormatter, _logEventDateTimeOffset, "message {Property}", null, new object[] { "value" }, activity);
     }
 }
