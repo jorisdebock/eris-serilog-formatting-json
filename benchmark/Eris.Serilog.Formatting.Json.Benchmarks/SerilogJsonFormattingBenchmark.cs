@@ -44,7 +44,7 @@ public class SerilogFormattingBenchmark
                 new LogEventProperty("Now", new ScalarValue(_logEventDateTimeOffset)) 
             });
 
-    [Params(FormatterType.SerilogJsonFormatter, FormatterType.CompactJsonFormatter)]
+    [Params(FormatterType.SerilogJsonFormatter,FormatterType.SerilogJsonFormatterRendered, FormatterType.CompactJsonFormatter)]
     public FormatterType FormatterType { get; set; }
 
     [Params(1, 20, 50, 500)]
@@ -58,6 +58,7 @@ public class SerilogFormattingBenchmark
         _formatter = FormatterType switch
         {
             FormatterType.SerilogJsonFormatter => new SerilogJsonFormatter(),
+            FormatterType.SerilogJsonFormatterRendered => new SerilogJsonFormatter(new() { RenderMessage = true }),
             FormatterType.CompactJsonFormatter => new CompactJsonFormatter(),
             _ => throw new NotImplementedException(),
         };

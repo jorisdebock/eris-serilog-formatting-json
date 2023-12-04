@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
+        <TargetFrameworks>net5.0;net6.0;net7.0;net8.0</TargetFrameworks>
         <LangVersion>latest</LangVersion>
         <PackageProjectUrl>https://github.com/jorisdebock/eris-serilog-formatting-json</PackageProjectUrl>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
@@ -10,6 +10,7 @@
         <PackageTags>eris,serilog,formatting,json</PackageTags>
         <Description>Json formatter for serilog</Description>
         <Authors>Eris</Authors>
+        <Version>1.1.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,7 +20,7 @@
         </None>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Serilog" Version="2.12.0" />
+        <PackageReference Include="Serilog" Version="3.1.1" />
     </ItemGroup>
 
 </Project>

@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 
 namespace Eris.Serilog.Formatting.Json;
 
@@ -32,6 +33,8 @@ public sealed class SerilogJsonFormatter : ITextFormatter
 
         WriteMessage(logEvent, output);
         WriteException(logEvent, output);
+        WriteTraceId(logEvent, output);
+        WriteSpanId(logEvent, output);
         WriteProperties(logEvent, output);
 
         output.Write('}');
@@ -104,6 +107,38 @@ public sealed class SerilogJsonFormatter : ITextFormatter
         output.Write('"');
         output.Write(':');
         _jsonValueFormatter.WriteQuotedJsonString(logEvent.Exception.ToString(), output);
+    }
+
+    private void WriteTraceId(LogEvent logEvent, TextWriter output)
+    {
+        if (!logEvent.TraceId.HasValue || !_settings.LogTraceId)
+        {
+            return;
+        }
+
+        output.Write(',');
+
+        output.Write('"');
+        output.Write(_settings.TraceIdName);
+        output.Write('"');
+        output.Write(':');
+        _jsonValueFormatter.WriteQuotedJsonString(logEvent.TraceId.Value.ToHexString(), output);
+    }
+
+    private void WriteSpanId(LogEvent logEvent, TextWriter output)
+    {
+        if (!logEvent.SpanId.HasValue || !_settings.LogSpanId)
+        {
+            return;
+        }
+
+        output.Write(',');
+
+        output.Write('"');
+        output.Write(_settings.SpanIdName);
+        output.Write('"');
+        output.Write(':');
+        _jsonValueFormatter.WriteQuotedJsonString(logEvent.SpanId.Value.ToHexString(), output);
     }
 
     private void WriteProperties(LogEvent logEvent, TextWriter output)
